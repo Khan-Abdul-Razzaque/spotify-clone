@@ -1,0 +1,27 @@
+.flex {
+    display: flex;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.br-10 {
+    border-radius: 10px;
+}
+
+.invert {
+    filter: invert(var(--invert));
+}
+
+.select-none {
+    user-select: none;
+}

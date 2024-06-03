@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify - Web Player: Music for everyone</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/utility.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="spotify flex space-between">
+        <div class="spotify-left br-10">
+            <div>
+                <div class="hide-left animation">
+                    <div class="flex">
+                        <img class="invert select-none" src="imgs/close.svg" alt="">
+                    </div>
+                </div>
+                <div class="spotify-logo flex align-center select-none">
+                    <div class="s-logo flex"><img class="invert" src="imgs/spotify.svg" alt=""></div>
+                    <div class="s-name">
+                        <h2>Spotify</h2>
+                    </div>
+                </div>
+                <div class="icons">
+                    <ul>
+                        <li class="flex align-center">
+                            <img class="invert select-none" src="imgs/home.svg" alt="">
+                            Home
+                        </li>
+                        <li class="flex align-center">
+                            <img class="invert select-none" src="imgs/search.svg" alt="">
+                            Search
+                        </li>
+                    </ul>
+                </div>
+                <div class="songs-list">
+                    <h2>Songs List</h2>
+                </div>
+                <div class="song-container flex br-10">
+                    <h2 style="padding: 20px 10px;">No PlayList Selected</h2>
+                </div>
+            </div>
+        </div>
+        <div class="spotify-right br-10">
+            <div>
+                <div class="header flex align-center space-between">
+                    <div class="buttons flex align-center">
+                        <div class="btn sign-up-btn">
+                            <button class="select-none">Sign up</button>
+                        </div>
+                        <div class="btn log-in-btn">
+                            <button class="select-none">Log in</button>
+                        </div>
+                    </div>
+                    <div class="arrows flex align-center">
+                        <div class="left-arrow flex align-center justify-center">
+                            <img class="invert select-none" src="imgs/left-arrow.svg" alt="arrow">
+                        </div>
+                        <div class="right-arrow flex align-center justify-center">
+                            <img class="invert select-none" src="imgs/right-arrow.svg" alt="arrow">
+                        </div>
+                    </div>
+                    <div class="hamburger animation">
+                        <div class="flex">
+                            <img class="invert select-none" src="imgs/hamburger.svg" alt="Hamburger">
+                        </div>
+                    </div>
+                </div>
+                <div class="s-playlists-container">
+                    <div class="s-playlists">
+                        <h2>Songs Playlists</h2>
+                    </div>
+                    <div class="playlists">
+                        
+                    </div>
+                </div>
+                <div class="play-controls">
+                    <div>
+                        <div class="flex align-center space-between">
+                            <div class="pc-song-name">
+                                <span></span>
+                            </div>
+                            <div class="timeVol flex align-center">
+                                <div class="time flex align-center">
+                                    <div class="current-time">
+                                        <span>00</span>
+                                    </div>
+                                    <div style="transform: scale(1.6);" class="separator">
+                                        <span style="font-weight: 900">/</span>
+                                    </div>
+                                    <div class="duration">
+                                        <span>00</span>
+                                    </div>
+                                </div>
+                                <div class="volume flex align-center">
+                                    <button class="pc-btn volume-icon flex align-center justify-center">
+                                        <img class="invert select-none" src="imgs/volume.svg" alt="">
+                                        <div class="volume-value"></div>
+                                    </button>
+                                    <div class="range">
+                                        <div class="flex align-center">
+                                            <input type="range" name="volume">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="seekBar">
+                            <div class="line">
+                                <div class="time-over"></div>
+                                <div class="ball"></div>
+                            </div>
+                        </div>
+                        <div class="controls flex align-center">
+                            <button class="pc-btn previous-song flex align-center justify-center">
+                                <img class="invert select-none" src="imgs/previous.svg" alt="">
+                            </button>
+                            <button class="pc-btn play-pause flex align-center justify-center">
+                                <img class="invert select-none" src="imgs/play.svg" alt="">
+                            </button>
+                            <button class="pc-btn next-song flex align-center justify-center">
+                                <img class="invert select-none" src="imgs/next.svg" alt="">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
