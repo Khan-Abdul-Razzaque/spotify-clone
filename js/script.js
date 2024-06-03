@@ -349,6 +349,6 @@ let interval; // Interval for current time.
 let interval_1; // Interval for seekBar.
 let timeout; // Timeout for volume value.
 let currentSong = new Audio()
-playsongs('songs/hamd/allah%20hu%20allah%20hu%20_%20laiba%20fatima%20_%20new%20hamd%202021-22%20-%2072%20stars%20production.mp3');
+playSongs('songs/hamd/allah%20hu%20allah%20hu%20_%20laiba%20fatima%20_%20new%20hamd%202021-22%20-%2072%20stars%20production.mp3');
 let folderName;
 driver()
