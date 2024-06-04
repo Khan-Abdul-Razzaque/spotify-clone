@@ -1,0 +1,132 @@
+[
+    {
+        "name": "hamd",
+        "thumbnail": "songs/hamd/thumbnail.jpg",
+        "title": "Hamd",
+        "description": "Hamd",
+        "songs": [
+            "songs/hamd/ALLAH HU ALLAH HU _ LAIBA FATIMA _ NEW HAMD 2021-22 - 72 Stars Production.mp3",
+            "songs/hamd/Heart Touching Emotional Kalam - Tera Ehsan Ya Allah - Hafiz Hassan Anzar.mp3",
+            "songs/hamd/Heart Touching Kalam - Watu Izzu Mantasha Watu Zillu Mantasha - Hafiz Huzaifa Hanfi.mp3",
+            "songs/hamd/Madad Kar Meri - Release.mp3",
+            "songs/hamd/New Emotional Nasheed 2022 Charagh-e-Zindagi - Hafiz Munir Ahmad  Hafiz_Munir NewNasheed - Hafiz Munir Official.mp3",
+            "songs/hamd/New Emotional Nasheed 2024 - Nahi Mayoos Hen Rab Se - Hafiz Amanullah Qazi.mp3",
+            "songs/hamd/New Heart Touching Hamad - Koi Bataye Daryaon Ko - Muhammad Anas Nazeer.mp3",
+            "songs/hamd/Rab Ko Dekha He mere Nabi Ne - New Beautiful Naat Shareef - Hafiz AmanUllah Qaz.mp3",
+            "songs/hamd/World's Most Beautiful Hamd - Ham Na Tujha Jana Hai.mp3"
+        ]
+    },
+    {
+        "name": "naat",
+        "thumbnail": "songs/naat/thumbnail.jpg",
+        "title": "Naat",
+        "description": "Naat",
+        "songs": [
+            "songs/naat/Hara Gumbad Jo Dekhoge Zamana Bhool Jaoge Naat _ Heart Touching Naat _  Hafiza Amna Siddiqui - One Plus Studio 🎶.mp3",
+            "songs/naat/Heart Touching Beautiful Naat - Har Dam Darood e Sali Ala - Mufti Abdullah Bin Abbas.mp3",
+            "songs/naat/Heart Touching Beautiful New Naat Sharif 2023 _ Huzoor ka hai jamal aisa _ H Abu Bakar Siddique - Saz e Sukhan.mp3",
+            "songs/naat/New Emotional Naat Sharif - Dil Wahi Reh Gaya - Hafiz Hassan Anzar.mp3",
+            "songs/naat/New Naat Sharif 2024 _ Ay Nabi _ Hafiz Hassan Anzar _ Ap Ka hai Karam - Hafiz Hassan Anzar.mp3",
+            "songs/naat/Rab Ko Dekha He mere Nabi Ne - New Beautiful Naat Shareef - Hafiz AmanUllah Qaz.mp3",
+            "songs/naat/Sab se Aula o Aala Hamara Nabi - Beautiful Naat Sharif - Syeda Areeba Fatima.mp3",
+            "songs/naat/Woh Shahr e Mohabbat - New Heart Touching Kalam 2024 - Taqi Usman official नोकलाम2024 TaqiUsman - Taqi Usman Official.mp3"
+        ]
+    },
+    {
+        "name": "shair",
+        "thumbnail": "songs/shair/thumbnail.jpg",
+        "title": "shair",
+        "description": "shair",
+        "songs": [
+            "songs/shair/Best Urdu Ghazal - Hosla har ke baithunga to mar jaunga - Dil Duniya - Usman Shah - Dil Ki Dunya.mp3",
+            "songs/shair/Emotional Kalam - Ab Bhool bhi jao Jane do - Hafiz Amanullah Qazi.mp3",
+            "songs/shair/Heart Touching Emotional Kalam __ Chalna Para Hai Tanha Koi nahi Kisi Ka __ Hafiz Hassan Anzar Naat - Hafiz Hassan Anzar.mp3",
+            "songs/shair/MARHABA MAH E RAMZAN - Ziaullah Asim.mp3",
+            "songs/shair/New Beautiful Kalam 2023 - Kuch Khwab Suhane Hote Hain - Hafiz Hassan Anzar - Nazam - Urdu Gazal - Hafiz Hassan Anzar.mp3",
+            "songs/shair/New Emotional Kalam - Maa Baap Ki Tazeem Kar - Hafiz Shariq Noorani.mp3",
+            "songs/shair/New Emotional Kalam 2024 -  Zindagi Dard Ki Kahani Hai - Hafiz Hassan Anzar - Nasheed Club - Hafiz Hassan Anzar.mp3",
+            "songs/shair/Sultani Bache Best Nazam 2024 Daniyal aziz - Madarsa Qadria Sultania.mp3",
+            "songs/shair/Tearful Emotional Track - Grifta Dil - Hafiz Hassan Anzar - New Kalam 2024 - Hafiz Hassan Anzar.mp3"
+        ]
+    },
+    {
+        "name": "playList_1",
+        "thumbnail": "songs/PlayList_1/thumbnail.jpg",
+        "title": "Playlist 1",
+        "description": "Playlist 1",
+        "songs": [
+        ]
+    },
+    {
+        "name": "playList_2",
+        "thumbnail": "songs/PlayList_2/thumbnail.jpg",
+        "title": "Playlist 2",
+        "description": "Playlist 2",
+        "songs": [
+        ]
+    },
+    {
+        "name": "playList_3",
+        "thumbnail": "songs/PlayList_3/thumbnail.jpg",
+        "title": "Playlist 3",
+        "description": "Playlist 3",
+        "songs": [
+        ]
+    },
+    {
+        "name": "playList_4",
+        "thumbnail": "songs/PlayList_4/thumbnail.jpg",
+        "title": "Playlist 4",
+        "description": "Playlist 4",
+        "songs": [
+        ]
+    },
+    {
+        "name": "playList_5",
+        "thumbnail": "songs/PlayList_5/thumbnail.jpg",
+        "title": "Playlist 5",
+        "description": "Playlist 5",
+        "songs": [
+        ]
+    },
+    {
+        "name": "playList_6",
+        "thumbnail": "songs/PlayList_6/thumbnail.jpg",
+        "title": "Playlist 6",
+        "description": "Playlist 6",
+        "songs": [
+        ]
+    },
+    {
+        "name": "playList_7",
+        "thumbnail": "songs/PlayList_7/thumbnail.jpg",
+        "title": "Playlist 7",
+        "description": "Playlist 7",
+        "songs": [
+        ]
+    },
+    {
+        "name": "playList_8",
+        "thumbnail": "songs/PlayList_8/thumbnail.jpg",
+        "title": "Playlist 8",
+        "description": "Playlist 8",
+        "songs": [
+        ]
+    },
+    {
+        "name": "playList_9",
+        "thumbnail": "songs/PlayList_9/thumbnail.jpg",
+        "title": "Playlist 9",
+        "description": "Playlist 9",
+        "songs": [
+        ]
+    },
+    {
+        "name": "playList_10",
+        "thumbnail": "songs/PlayList_10/thumbnail.jpg",
+        "title": "Playlist 10",
+        "description": "Playlist 10",
+        "songs": [
+        ]
+    }
+]

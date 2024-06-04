@@ -16,6 +16,7 @@
     box-sizing: border-box;
     font-family: 'roboto';
     color: rgb(207, 207, 207);
+    -webkit-tap-highlight-color: transparent;
 }
 
 a {
@@ -519,6 +520,7 @@ li {
     height: 40px;
     width: 40px;
     border-radius: 50%;
+    z-index: 2;
 }
 
 .volume-icon img {

@@ -1,34 +1,25 @@
 // Fetching song folder / Playlist.
 async function fetchFolders() {
-    let fetchFolder = await fetch("/songs");
-    let response = await fetchFolder.text();
-    let div = document.createElement('div');
-    div.innerHTML = response;
-    let folders = [];
-    let anchorTags = div.getElementsByTagName('a');
-    for (const anchorTag of anchorTags) {
-        if (anchorTag.href.includes("/songs/") && !anchorTag.href.includes('.htaccess')) {
-            folders.push(anchorTag.href.split('/')[anchorTag.href.split('/').length - 1]);
-        }
-    }
+    let fetchFolder = await fetch("/playList.json");
+    let folders = await fetchFolder.json();
     return folders;
 }
 
 // Fetching all mp3 file from the server.
-async function fetchSongs(folderName) {
-    let fetchedFile = await fetch(`${folderName}`);
-    let response = await fetchedFile.text();
-    let div = document.createElement('div');
-    div.innerHTML = response;
-    let songs = [];
-    let anchorTags = div.getElementsByTagName('a');
-    for (const anchorTag of anchorTags) {
-        if (anchorTag.href.endsWith(".mp3")) {
-            songs.push(anchorTag.href);
-        }
-    }
-    return songs;
-}
+// async function fetchSongs(folderName) {
+//     let fetchedFile = await fetch(`${folderName}`);
+//     let response = await fetchedFile.text();
+//     let div = document.createElement('div');
+//     div.innerHTML = response;
+//     let songs = [];
+//     let anchorTags = div.getElementsByTagName('a');
+//     for (const anchorTag of anchorTags) {
+//         if (anchorTag.href.endsWith(".mp3")) {
+//             songs.push(anchorTag.href);
+//         }
+//     }
+//     return songs;
+// }
 
 // Playing audio.
 function playSong(url) {
@@ -114,8 +105,7 @@ line.addEventListener('click', (e) => {
 })
 
 // Inserting all the songs in the songs container.
-async function insertSongs(folderName) {
-    songs = await fetchSongs(folderName);
+async function insertSongs(songs) {
     songs.forEach((song) => {
         let songRow = document.createElement('div');
         songRow.innerHTML = `<div class="m-icon-s-name flex align-center">
@@ -123,7 +113,7 @@ async function insertSongs(folderName) {
                                     <img class="invert select-none" src="imgs/music.svg" alt="">
                                 </div>
                                 <div class="song-name">
-                                    <span>${song.split('/')[song.split('/').length - 1].replaceAll("%20", ' ').replace(".mp3", '')}</span>
+                                    <span>${song.split("/")[song.split("/").length - 1]}</span>
                                 </div>
                             </div>
                             <div class="play-icon flex align-center">
@@ -134,20 +124,20 @@ async function insertSongs(folderName) {
         document.querySelector('.song-container').insertAdjacentElement('beforeend', songRow);
         let button = songRow.querySelector('.play-icon');
         button.addEventListener('click', () => {
-            if (previousButton != null) {
-                previousButton.querySelector('span').innerHTML = 'play';
-                previousButton.querySelector('img').src = "imgs/play.svg";
-                previousButton.style.backgroundColor = '';
-            }
+            // if (previousButton != null) {
+            //     previousButton.querySelector('span').innerHTML = 'play';
+            //     previousButton.querySelector('img').src = "imgs/play.svg";
+            //     previousButton.style.backgroundColor = '';
+            // }
 
             let butParent = button.parentElement.querySelector('.m-icon-s-name .song-name span');
-            let file = butParent.innerHTML + ".mp3";
-            document.querySelector('.pc-song-name span').innerHTML = butParent.innerHTML;
-            playSong(`${folderName}/${file}`);
-            button.querySelector('span').innerHTML = 'pause';
-            button.querySelector('img').src = "imgs/pause.svg";
-            button.style.backgroundColor = 'rgb(43, 107, 22)';
-            previousButton = button;
+            document.querySelector('.pc-song-name span').innerHTML = butParent.innerHTML.split(".mp3")[0];
+            currentSongURL = song;
+            playSong(song);
+            // button.querySelector('span').innerHTML = 'pause';
+            // button.querySelector('img').src = "imgs/pause.svg";
+            // button.style.backgroundColor = 'rgb(43, 107, 22)';
+            // previousButton = button;
             document.querySelector('.play-pause img').src = "imgs/pause.svg";
             tenthsPlace = unitPlace = minutePlace = 0;
             timeUpdate();
@@ -157,6 +147,7 @@ async function insertSongs(folderName) {
                 btn.style.cursor = "pointer";
             })
             currentSong.volume = parseInt(document.querySelector('.range > div input').value) / 100;
+            console.log(currentSongURL)
         })
     });
     if (songs.length == 0) {
@@ -166,35 +157,34 @@ async function insertSongs(folderName) {
     }
 }
 
-
 // Driver Function of the program.
 async function driver() {
     let folders = await fetchFolders();
-    folders.forEach(async (folder) => {
-        let infoJson = await fetch(`/songs/${folder}/info.json`);
-        let iJResponse = await infoJson.json();
-        let playlistInfo = iJResponse;
+    folders.forEach((folder) => {
         let folderBox = document.createElement('div');
-        folderBox.innerHTML = `<div style="background: url('/songs/${folder}/thumbnail.jpg'); background-repeat: no-repeat; background-position: center center; background-size: cover;" class="image flex">
-                                    </div>
-                                    <div class="title">
-                                        <h3>${playlistInfo.title}</h3>
-                                    </div>
-                                    <div class="description">
-                                        <span>${playlistInfo.description}</span>
-                                    </div>`;
+
+        folderBox.innerHTML = `<div style="background: url(${folder.thumbnail}); background-repeat: no-repeat; background-position: center center; background-size: cover;" class="image flex">
+                                        </div>
+                                        <div class="title">
+                                            <h3>${folder.title}</h3>
+                                        </div>
+                                        <div class="description">
+                                            <span>${folder.description}</span>
+                                        </div>`;
         folderBox.classList = "playlist br-10";
-        folderBox.dataset.folder = `${folder}`
+        folderBox.dataset.folder = `${folder.name}`
         document.querySelector('.playlists').insertAdjacentElement('beforeend', folderBox);
 
         // Adding event listener to change song playlist.
         folderBox.addEventListener('click', () => {
             document.querySelector('.song-container').innerHTML = "";
             let playlist_name = `<div class="active-playlist-name">
-                                <h2>${playlistInfo.title}</h3>
-                                </div>`
+                                    <h2>${folder.title}</h3>
+                                    </div>`
             document.querySelector('.song-container').insertAdjacentHTML("beforeend", playlist_name)
-            insertSongs(`/songs/${folderBox.dataset.folder}`);
+            songs = folder.songs;
+            console.log(songs)
+            insertSongs(songs);
             currentSong.src = "";
             clearInterval(interval);
             clearInterval(interval_1);
@@ -206,50 +196,46 @@ async function driver() {
 
     //Adding event listener to previous button.
     previousSong.addEventListener('click', () => {
-        for (const key in songs) {
-            const element = songs[key];
-            if (currentSong.src == element) {
-                if (songs.indexOf(element) > 0) {
-                    if (songs.indexOf(element) == 1) {
-                        previousSong.style.cursor = "not-allowed";
-                    }
-                    if (!currentSong.paused) {
-                        playSong(songs[parseInt(key) - 1]);
-                    }
-                    else {
-                        currentSong.src = songs[parseInt(key) - 1];
-                    }
-                    break;
-                }
-                else {
-                    alert('No more previous songs');
-                }
+        if (songs.indexOf(currentSongURL) > 0) {
+            if (songs.indexOf(currentSongURL) == 1) {
+                previousSong.style.cursor = "not-allowed";
             }
+            if (!currentSong.paused) {
+                playSong(songs[songs.indexOf(currentSongURL) - 1]);
+                currentSongURL = songs[songs.indexOf(currentSongURL) - 1];
+                document.querySelector('.pc-song-name span').innerHTML = currentSongURL.split("/")[currentSongURL.split("/").length - 1].split(".mp3")[0];
+            }
+            else {
+                currentSong.src = songs[songs.indexOf(currentSongURL) - 1];
+                currentSongURL = songs[songs.indexOf(currentSongURL) - 1];
+                document.querySelector('.pc-song-name span').innerHTML = currentSongURL.split("/")[currentSongURL.split("/").length - 1].split(".mp3")[0];
+            }
+        }
+        else {
+            alert('No more previous songs');
         }
     })
 
 
     //Adding event listener to next button.
     nextSong.addEventListener('click', () => {
-        for (const key in songs) {
-            const element = songs[key];
-            if (currentSong.src == element) {
-                if (songs.indexOf(element) < songs.length - 1) {
-                    if (songs.indexOf(element) == songs.length - 2) {
-                        nextSong.style.cursor = "not-allowed";
-                    }
-                    if (!currentSong.paused) {
-                        playSong(songs[parseInt(key) + 1]);
-                    }
-                    else {
-                        currentSong.src = songs[parseInt(key) + 1];
-                    }
-                    break;
-                }
-                else {
-                    alert('No more new songs');
-                }
+        if (songs.indexOf(currentSongURL) < songs.length - 1) {
+            if (songs.indexOf(currentSongURL) == songs.length - 2) {
+                previousSong.style.cursor = "not-allowed";
             }
+            if (!currentSong.paused) {
+                playSong(songs[songs.indexOf(currentSongURL) + 1]);
+                currentSongURL = songs[songs.indexOf(currentSongURL) + 1];
+                document.querySelector('.pc-song-name span').innerHTML = currentSongURL.split("/")[currentSongURL.split("/").length - 1].split(".mp3")[0];
+            }
+            else {
+                currentSong.src = songs[songs.indexOf(currentSongURL) + 1];
+                currentSongURL = songs[songs.indexOf(currentSongURL) + 1];
+                document.querySelector('.pc-song-name span').innerHTML = currentSongURL.split("/")[currentSongURL.split("/").length - 1].split(".mp3")[0];
+            }
+        }
+        else {
+            alert('No more new songs');
         }
     })
 
@@ -344,10 +330,12 @@ let volume_range = document.querySelector('.range > div input');
 let volume_value = document.querySelector('.volume-value');
 let hamburger = document.querySelector('.hamburger');
 let close = document.querySelector('.hide-left');
+let playButtons;
 
 let interval; // Interval for current time.
 let interval_1; // Interval for seekBar.
 let timeout; // Timeout for volume value.
 let currentSong = new Audio()
+let currentSongURL;
 let folderName;
 driver()
